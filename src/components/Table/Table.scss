@@ -1,0 +1,45 @@
+.table {
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.MuiTableRow-root > * {
+    padding: 10px !important;
+}
+
+.MuiTableRow-root.MuiTableRow-head > * {
+    font-weight: 900 !important;
+}
+
+.table tbody tr td,
+th {
+    border: none !important;
+}
+
+.table:first-child {
+    // border-radius: 0.7rem !important;
+}
+
+.details {
+    // color: #00b5ff !important;
+    // font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .table {
+        width: 170%;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 18rem;
+    }
+}

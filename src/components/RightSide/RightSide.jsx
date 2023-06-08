@@ -1,0 +1,21 @@
+import "./RightSide.scss";
+import React from 'react'
+import Updates from "../Updates/Updates";
+import CustomerReview from "../CustomerReview/CustomerReview";
+
+const RightSide = () => {
+  return (
+    <div className="rightSide">
+        <div className="updates">
+            <h3>Updates</h3>
+            <Updates />
+        </div>
+        <div>
+            <h3>Customer Review</h3>
+            <CustomerReview />
+        </div>
+    </div>
+  )
+}
+
+export default RightSide;

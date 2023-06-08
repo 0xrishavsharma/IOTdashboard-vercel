@@ -1,0 +1,14 @@
+.cards {
+  display: flex;
+  gap: 1rem;
+}
+
+.cards .parentContainer {
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .cards {
+    flex-direction: column;
+  }
+}

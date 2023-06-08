@@ -1,0 +1,15 @@
+.mainDash {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 1200px) {
+  .mainDash {
+    margin-top: 2rem;
+    justify-content: flex-start;
+  }
+  .mainDash h1 {
+    margin-bottom: 2rem;
+  }
+}

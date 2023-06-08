@@ -1,0 +1,30 @@
+1. Supply chain data : 
+    - Inventory Levels
+    - Number of SC Partners
+    - Share of Suppliers and Customers 
+    - Highest Debit and Credit Transactions Sales volume from each SC partners
+
+2. Labor Data : 
+    - Labor attendance 
+    - Labor Movement
+    - Labor Productivity 
+3. Operational Data : 
+    - Fuel Consumption
+    - Truck movement 
+    - Footfall
+    - Internet Usage
+    - Social Media Followers
+    - Location of business
+    - Roads and Infrastructure
+    - Scrappage 
+    - Waste disposal 
+4. Energy Data :
+    - Daily consumption 
+    - Capacity Utilisation 
+    - Machine Maintenance 
+    - Power Factor in Grid
+5. Commodity Data : 
+    - Raw material prices
+    - Selling Prices
+    - Product Types
+    - Process of Product

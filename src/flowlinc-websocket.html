@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <script type="text/javascript">
+        function WebSocketAPIExample() {
+            var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWdoYXZAZXF1aWRlaS5jb20iLCJ1c2VySWQiOiJkYzQwODBiMC1lNzUzLTExZWQtYTQwMi05MWI4ZjM0Yzc2ZTEiLCJzY29wZXMiOlsiQ1VTVE9NRVJfVVNFUiJdLCJzZXNzaW9uSWQiOiIwMjViZGUyOC05NDJmLTQwZGQtODYzYy1hNzFjZmJhYmM0ZDUiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTY4NTcwMjEwMSwiZXhwIjoxNjg1Nzg4NTAxLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMTEyZjQ2ZjAtMmJlYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwiY3VzdG9tZXJJZCI6ImZkZTgzZTEwLWQzOTAtMTFlYy05ZDk5LTUxOTdhODE4MDVjZiJ9.IM_D58PkqTgJxVqsACpgLoxYYW90A384El4Z4A2r4ZSsdazgItgnJX8OkFmqcuF564ETJM53tWw4zLfLxqpXDA";
+            var entityId = "cac8a830-c1fc-11ec-9d99-5197a81805cf";
+            var webSocket = new WebSocket("ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=" + token);
+            /*
+                        if (entityId === "12adf75b0-e9ba-11ed-a402-91b8f34c76e1") {
+                            alert("Invalid device id!");
+                            webSocket.close();
+                        }
+            
+                        if (token === "1eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhcmNoaXRAdXNodmEuY29tIiwidXNlcklkIjoiZjdlMzQ1MjAtMmNjYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJzZXNzaW9uSWQiOiI2YWUyZTAzZS02NDM0LTRkY2UtOGQ3Ny0yMTE4YzYyY2Y5YTYiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTY4MzI4MDU1MSwiZXhwIjoxNjgzMzY2OTUxLCJmaXJzdE5hbWUiOiJBcmNoaXQiLCJsYXN0TmFtZSI6IktoYW5kZWx3YWwiLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMTEyZjQ2ZjAtMmJlYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCJ9.1DhugT0dIQNCHt8X_crIkVB3y5tYVN2ePXmFLWL6TkcOJTNmvwYtSxU_3eYeRNlYhSiu-_KgmMwHoj4cgBcBGQ") {
+                            alert("Invalid JWT token!");
+                            webSocket.close();
+                        }
+            */
+            webSocket.onopen = function () {
+                var object = {
+                    tsSubCmds: [
+                        {
+                            entityType: "DEVICE",
+                            entityId: entityId,
+                            scope: "LATEST_TELEMETRY",
+                            cmdId: 10
+                        }
+                    ],
+                    historyCmds: [],
+                    attrSubCmds: []
+                };
+                var data = JSON.stringify(object);
+                webSocket.send(data);
+                alert("Message is sent: " + data);
+            };
+
+            webSocket.onmessage = function (event) {
+                var received_msg = event.data;
+                alert("Message is received: " + received_msg);
+            };
+
+            webSocket.onclose = function (event) {
+                alert("Connection is closed!");
+            };
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div id="sse">
+        <a href="javascript:WebSocketAPIExample()">Run WebSocket</a>
+    </div>
+
+</body>
+
+</html>
