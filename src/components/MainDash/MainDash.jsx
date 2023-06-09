@@ -45,7 +45,8 @@ const MainDash = ({ currentTab }) => {
 			"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWdoYXZAZXF1aWRlaS5jb20iLCJ1c2VySWQiOiJkYzQwODBiMC1lNzUzLTExZWQtYTQwMi05MWI4ZjM0Yzc2ZTEiLCJzY29wZXMiOlsiQ1VTVE9NRVJfVVNFUiJdLCJzZXNzaW9uSWQiOiJmMmZlOTQ3YS00M2ZkLTQ1YTctOTNmMS0xNmU2MWQwYTliYjkiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTY4NjIzMTE0MSwiZXhwIjoxNjg2MzE3NTQxLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMTEyZjQ2ZjAtMmJlYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwiY3VzdG9tZXJJZCI6ImZkZTgzZTEwLWQzOTAtMTFlYy05ZDk5LTUxOTdhODE4MDVjZiJ9.QrbRvQ9nbPct8uGMyjFkLizan-LjEVHhsMR-OdZTGmLiEg5Hl11v2WkhxTdPhmBbFPluqhmc0nvtXQq-UMHJ8w";
 		var entityId = "cac8a830-c1fc-11ec-9d99-5197a81805cf";
 		const endpoint = process.env.NODE_ENV === "production" ? "wss://flowlinc.io:8080/api/ws/plugins/telemetry?token=" : "ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=";
-		const finalToken = process.env.NODE_ENV === "production" ? loginRes?.token : token
+		// const finalToken = process.env.NODE_ENV === "production" ? loginRes?.token : token
+		const finalToken = token;
 		var webSocket = new WebSocket(endpoint + finalToken
 		);
 		webSocket.onopen = function () {
