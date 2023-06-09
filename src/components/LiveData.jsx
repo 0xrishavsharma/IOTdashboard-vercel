@@ -11,6 +11,7 @@ const LiveData = ({
 	yearlyConsum,
 	yearlyConsumLastUp,
 }) => {
+	console.log("data", data);
 	const liveData = [
 		{
 			name: "Location Coordinates",

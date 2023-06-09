@@ -25,9 +25,9 @@ const MainDash = ({ currentTab }) => {
 	// const [yearlyConsum, setYearlyConsum] = useState();
 	// const [yearlyConsumLastUp, setYearlyConsumLastUp] = useState();
 
-	useEffect(() => {
-		WebSocketAPI();
-	}, []);
+	// useEffect(() => {
+	// 	WebSocketAPI();
+	// }, []);
 
 	async function WebSocketAPI() {
 		const loginRes = await fetch("https://flowlinc.io:443/api/auth/login", {
@@ -44,9 +44,12 @@ const MainDash = ({ currentTab }) => {
 		var token =
 			"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWdoYXZAZXF1aWRlaS5jb20iLCJ1c2VySWQiOiJkYzQwODBiMC1lNzUzLTExZWQtYTQwMi05MWI4ZjM0Yzc2ZTEiLCJzY29wZXMiOlsiQ1VTVE9NRVJfVVNFUiJdLCJzZXNzaW9uSWQiOiIyMDA1MTA4NS0yZjFhLTRhYmYtYjUzMy03ZTE4NTIyZDk3YjkiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTY4NjI3NzQ2MSwiZXhwIjoxNjg2MzYzODYxLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMTEyZjQ2ZjAtMmJlYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwiY3VzdG9tZXJJZCI6ImZkZTgzZTEwLWQzOTAtMTFlYy05ZDk5LTUxOTdhODE4MDVjZiJ9.7A8Q7lmahfcgeKElUNXGsdzrUKv1a8jXS_OYXFqn6hFiyliKaLoh-dwXgYqUlOGhf9RfjvrImj9UkxNSUZ8m3g";
 		var entityId = "cac8a830-c1fc-11ec-9d99-5197a81805cf";
-		// const endpoint = process.env.NODE_ENV === "production" ? "wss://flowlinc.io:8080/api/ws/plugins/telemetry?token=" : "ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=";
-		const endpoint = "ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=";
-		// const finalToken = process.env.NODE_ENV === "production" ? loginRes?.token : token
+		const endpoint =
+			process.env.NODE_ENV === "production"
+				? "wss://flowlinc.io/api/ws/plugins/telemetry?token="
+				: "ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=";
+		const finalToken =
+			process.env.NODE_ENV === "production" ? loginRes?.token : token;
 		var webSocket = new WebSocket(endpoint + token);
 		webSocket.onopen = function () {
 			var object = {
@@ -63,15 +66,24 @@ const MainDash = ({ currentTab }) => {
 			};
 			var data = JSON.stringify(object);
 			webSocket.send(data);
-			console.log("Connection is opened with data:");
+			console.log("Connection is opened");
 		};
 
 		webSocket.onmessage = function (event) {
-			var res = event.data;
-			var received_msg = JSON.parse(res);
-			console.log("received_msg", received_msg);
-			const modifiedData = setData(received_msg?.data);
-			setData(received_msg?.data);
+			const res = event.data;
+			const received_msg = JSON.parse(res);
+			const dataArray = Object.entries(received_msg.data);
+			for (let i = 0; i < dataArray.length; i++) {
+				if (dataArray[i] === null || dataArray[i] === undefined) {
+					dataArray.splice(i, 1);
+				}
+			}
+			console.log("DataArray", dataArray);
+			const dataObject = Object.fromEntries(dataArray);
+			console.log("Data Object", dataObject);
+			// console.log("received_msg", received_msg);
+			// alert("Message is received: " + received_msg);
+			setData(dataObject);
 
 			// setCost(
 			// 	received_msg?.data?.today_cost_kWh &&
