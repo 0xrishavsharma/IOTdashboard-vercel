@@ -36,13 +36,13 @@ const MainDash = ({ currentTab }) => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				username: "raghav@equidei.com",
-				password: "@Equidei123",
+				username: import.meta.env.VITE_FLOWLINC_USERNAME,
+				password: import.meta.env.VITE_FLOWLINC_PW,
 			}),
 		});
 		console.log("loginRes", loginRes);
 		var token =
-			"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWdoYXZAZXF1aWRlaS5jb20iLCJ1c2VySWQiOiJkYzQwODBiMC1lNzUzLTExZWQtYTQwMi05MWI4ZjM0Yzc2ZTEiLCJzY29wZXMiOlsiQ1VTVE9NRVJfVVNFUiJdLCJzZXNzaW9uSWQiOiJmMmZlOTQ3YS00M2ZkLTQ1YTctOTNmMS0xNmU2MWQwYTliYjkiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTY4NjIzMTE0MSwiZXhwIjoxNjg2MzE3NTQxLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMTEyZjQ2ZjAtMmJlYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwiY3VzdG9tZXJJZCI6ImZkZTgzZTEwLWQzOTAtMTFlYy05ZDk5LTUxOTdhODE4MDVjZiJ9.QrbRvQ9nbPct8uGMyjFkLizan-LjEVHhsMR-OdZTGmLiEg5Hl11v2WkhxTdPhmBbFPluqhmc0nvtXQq-UMHJ8w";
+			"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWdoYXZAZXF1aWRlaS5jb20iLCJ1c2VySWQiOiJkYzQwODBiMC1lNzUzLTExZWQtYTQwMi05MWI4ZjM0Yzc2ZTEiLCJzY29wZXMiOlsiQ1VTVE9NRVJfVVNFUiJdLCJzZXNzaW9uSWQiOiIyMDA1MTA4NS0yZjFhLTRhYmYtYjUzMy03ZTE4NTIyZDk3YjkiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTY4NjI3NzQ2MSwiZXhwIjoxNjg2MzYzODYxLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMTEyZjQ2ZjAtMmJlYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwiY3VzdG9tZXJJZCI6ImZkZTgzZTEwLWQzOTAtMTFlYy05ZDk5LTUxOTdhODE4MDVjZiJ9.7A8Q7lmahfcgeKElUNXGsdzrUKv1a8jXS_OYXFqn6hFiyliKaLoh-dwXgYqUlOGhf9RfjvrImj9UkxNSUZ8m3g";
 		var entityId = "cac8a830-c1fc-11ec-9d99-5197a81805cf";
 		const endpoint = process.env.NODE_ENV === "production" ? "wss://flowlinc.io:8080/api/ws/plugins/telemetry?token=" : "ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=";
 		// const finalToken = process.env.NODE_ENV === "production" ? loginRes?.token : token
