@@ -46,9 +46,7 @@ const MainDash = ({ currentTab }) => {
 		var entityId = "cac8a830-c1fc-11ec-9d99-5197a81805cf";
 		const endpoint = process.env.NODE_ENV === "production" ? "wss://flowlinc.io:8080/api/ws/plugins/telemetry?token=" : "ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=";
 		// const finalToken = process.env.NODE_ENV === "production" ? loginRes?.token : token
-		const finalToken = token;
-		var webSocket = new WebSocket(endpoint + finalToken
-		);
+		var webSocket = new WebSocket(endpoint + token);
 		webSocket.onopen = function () {
 			var object = {
 				tsSubCmds: [
