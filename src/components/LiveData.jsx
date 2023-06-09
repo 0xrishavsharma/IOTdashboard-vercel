@@ -24,8 +24,8 @@ const LiveData = ({
 		{
 			name: "Today's Cost(₹)",
 			value:
-				// data?.today_cost_kWh && "₹ " + data?.today_cost_kWh[0][1].slice(0, 7),
-				"₹ " + data?.today_cost_kWh[0][1].slice(0, 7),
+				data?.today_cost_kWh && "₹ " + data?.today_cost_kWh[0][1].slice(0, 7),
+			// "₹ " + data?.today_cost_kWh[0][1].slice(0, 7),
 			lastUpdated:
 				data?.hourly_consumption_kWh && data?.hourly_consumption_kWh[0][0],
 		},

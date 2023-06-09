@@ -44,8 +44,9 @@ const MainDash = ({ currentTab }) => {
 		var token =
 			"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWdoYXZAZXF1aWRlaS5jb20iLCJ1c2VySWQiOiJkYzQwODBiMC1lNzUzLTExZWQtYTQwMi05MWI4ZjM0Yzc2ZTEiLCJzY29wZXMiOlsiQ1VTVE9NRVJfVVNFUiJdLCJzZXNzaW9uSWQiOiJmMmZlOTQ3YS00M2ZkLTQ1YTctOTNmMS0xNmU2MWQwYTliYjkiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTY4NjIzMTE0MSwiZXhwIjoxNjg2MzE3NTQxLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMTEyZjQ2ZjAtMmJlYy0xMWVjLWI1NGEtNTE3MGFiZWE5NDJkIiwiY3VzdG9tZXJJZCI6ImZkZTgzZTEwLWQzOTAtMTFlYy05ZDk5LTUxOTdhODE4MDVjZiJ9.QrbRvQ9nbPct8uGMyjFkLizan-LjEVHhsMR-OdZTGmLiEg5Hl11v2WkhxTdPhmBbFPluqhmc0nvtXQq-UMHJ8w";
 		var entityId = "cac8a830-c1fc-11ec-9d99-5197a81805cf";
-		var webSocket = new WebSocket(
-			"ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=" + token
+		const endpoint = process.env.NODE_ENV === "production" ? "wss://flowlinc.io:8080/api/ws/plugins/telemetry?token=" : "ws://flowlinc.io:8080/api/ws/plugins/telemetry?token=";
+		const finalToken = process.env.NODE_ENV === "production" ? loginRes?.token : token
+		var webSocket = new WebSocket(endpoint + finalToken
 		);
 		webSocket.onopen = function () {
 			var object = {
@@ -62,12 +63,13 @@ const MainDash = ({ currentTab }) => {
 			};
 			var data = JSON.stringify(object);
 			webSocket.send(data);
-			console.log("Connection is opened with data:", data);
+			console.log("Connection is opened with data:");
 		};
 
 		webSocket.onmessage = function (event) {
 			var res = event.data;
 			var received_msg = JSON.parse(res);
+			console.log("received_msg", received_msg);
 			const modifiedData = setData(received_msg?.data);
 			setData(received_msg?.data);
 
