@@ -58,7 +58,7 @@ export const energyCards = [
 		// 	boxShadow: "0px 10px 20px 0px #84ba96",
 		// },
 		color: {
-			backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			backGround: "linear-gradient(180deg, rgb(147, 51, 234) 0%, rgb(147, 51, 234) 100%)",
 			boxShadow: "0px 10px 20px 0px #e0c6f5",
 		},
 		barValue: 70,
@@ -126,7 +126,7 @@ export const energyCards = [
 		// 	boxShadow: "0px 10px 20px 0px #84ba96",
 		// },
 		color: {
-			backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			backGround: "linear-gradient(180deg, rgb(147, 51, 234) 0%, rgb(147, 51, 234) 100%)",
 			boxShadow: "0px 10px 20px 0px #e0c6f5",
 		},
 		barValue: 79,
@@ -207,7 +207,7 @@ export const energyCards = [
 		// 	boxShadow: "0px 10px 20px 0px #f9d59b",
 		// },
 		color: {
-			backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			backGround: "linear-gradient(180deg, rgb(147, 51, 234) 0%, rgb(147, 51, 234) 100%)",
 			boxShadow: "0px 10px 20px 0px #e0c6f5",
 		},
 		barValue: 73,
@@ -282,7 +282,7 @@ export const energyCards = [
 		// 	boxShadow: "0px 10px 20px 0px #575f8d",
 		// },
 		color: {
-			backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			backGround: "linear-gradient(180deg, rgb(147, 51, 234) 0%, rgb(147, 51, 234) 100%)",
 			boxShadow: "0px 10px 20px 0px #e0c6f5",
 		},
 		barValue: 73,
@@ -336,7 +336,7 @@ export const energyCards = [
 		// 	boxShadow: "0px 10px 20px 0px #84ba96",
 		// },
 		color: {
-			backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			backGround: "linear-gradient(180deg, rgb(147, 51, 234) 0%, rgb(147, 51, 234) 100%)",
 			boxShadow: "0px 10px 20px 0px #e0c6f5",
 		},
 		barValue: 73,
@@ -408,7 +408,7 @@ export const energyCards = [
 		// 	boxShadow: "0px 10px 20px 0px #b8b6e0",
 		// },
 		color: {
-			backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			backGround: "linear-gradient(180deg, rgb(147, 51, 234) 0%, rgb(147, 51, 234) 100%)",
 			boxShadow: "0px 10px 20px 0px #e0c6f5",
 		},
 		barValue: 73,
@@ -477,7 +477,8 @@ export const commodityCards = [
 		// 	boxShadow: "0px 10px 20px 0px #a5524a",
 		// },
 		color: {
-			backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			// backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+			backGround: "linear-gradient(180deg, rgb(147, 51, 234) 0%, rgb(147, 51, 234) 100%)",
 			boxShadow: "0px 10px 20px 0px #e0c6f5",
 		},
 		barValue: 73,

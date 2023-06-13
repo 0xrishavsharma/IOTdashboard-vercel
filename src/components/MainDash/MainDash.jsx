@@ -1,4 +1,3 @@
-import "./MainDash.scss";
 import React, { useEffect, useState } from "react";
 import Table from "../Table/Table";
 import EnergyTab from "../EnergyTab";
@@ -108,12 +107,11 @@ const MainDash = ({ currentTab }) => {
 		};
 
 		webSocket.onclose = function (event) {
-			// alert("Connection is closed!");
 			console.log("Connection is closed!");
 		};
 	}
 	return (
-		<div className="mainDash">
+		<div className="flex flex-col gap-12 min-h-[calc(100vh_-_8rem)] max-[1200px]:mt-6 max-[1200px]:flex-start">
 			<div className="flex items-center justify-between">
 				<div className="flex gap-4">
 					<div className="flex items-center gap-1">
