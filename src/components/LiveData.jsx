@@ -62,7 +62,7 @@ const LiveData = ({
 				{liveData.map((item, i) => (
 					<div
 						key={i}
-						className="flex w-full h-full justify-between flex-col gap-0 flex-[1] text-black bg-[#ffffff66] border-[1px] border-purple-950 rounded-md h-26 ">
+						className="flex justify-between flex-col gap-0 flex-[1] text-black bg-[#ffffff66] border-[1px] border-purple-950 rounded-md h-26 w-[225px] ">
 						<h4 className="relative flex items-center px-2 py-1 text-xs font-semibold text-white max-w-max before:absolute before:left-0 before:rounded-tl-sm before:top-0 before:h-full before:w-full before:bg-purple-600">
 							<span className="z-20">{item.name}</span>
 						</h4>

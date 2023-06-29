@@ -113,42 +113,44 @@ function ExpandedCard({ sheetData, data, setExpanded }) {
 		});
 	}
 	return (
-		<motion.div
-			className="z-20 expandedCard"
-			style={{
-				background: data.color.backGround,
-				boxShadow: data.color.boxShadow,
-			}}
-			layoutId="expandableCard">
-			<UilTimes
-				className="absolute text-3xl text-white cursor-pointer top-4 right-4"
-				onClick={setExpanded}
-			/>
-			<span className="mb-4 text-4xl font-black text-left text-white uppercase">
-				{data.title}
-			</span>
-			<div>
-				<Table data={data.dashboardData} />
-			</div>
-			<div className="flex gap-12 ">
-				{data.series.map((item, i) => {
-					return (
-						<div key={i} className="chartContainer">
-							<h3>{data.chartTitle && data.chartTitle[i]}</h3>
-							<Chart
-								series={data.series[i] ? data.series[i] : data.series}
-								type="bar"
-								options={options[i]}
-								className="p-4 border-2 border-gray-200 rounded-md"
-								title={data.yaxis[i].title.text}
-								// chartTitle={data.chatTitle && data.chatTitle[i]}
-								width="450px"
-								id="chart"
-							/>
-						</div>
-					);
-				})}
-			</div>
+		<motion.div className="flex justify-center w-full">
+			<motion.div
+				className="max-w-[1284px] z-20 expandedCard"
+				style={{
+					background: data.color.backGround,
+					boxShadow: data.color.boxShadow,
+				}}
+				layoutId="expandableCard">
+				<UilTimes
+					className="absolute text-3xl text-white cursor-pointer top-4 right-4"
+					onClick={setExpanded}
+				/>
+				<span className="mb-4 text-4xl font-black text-left text-white uppercase">
+					{data.title}
+				</span>
+				<div>
+					<Table data={data.dashboardData} />
+				</div>
+				<div className="flex gap-12 ">
+					{data.series.map((item, i) => {
+						return (
+							<div key={i} className="chartContainer">
+								<h3>{data.chartTitle && data.chartTitle[i]}</h3>
+								<Chart
+									series={data.series[i] ? data.series[i] : data.series}
+									type="bar"
+									options={options[i]}
+									className="p-4 border-2 border-gray-200 rounded-md"
+									title={data.yaxis[i].title.text}
+									// chartTitle={data.chatTitle && data.chatTitle[i]}
+									width="450px"
+									id="chart"
+								/>
+							</div>
+						);
+					})}
+				</div>
+			</motion.div>
 		</motion.div>
 	);
 }

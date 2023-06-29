@@ -60,17 +60,26 @@
 
 .expandedCard {
     position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    right: 1.5rem;
+    // top: 1.5rem;
+    // left: 1.5rem;
+    // right: 1.5rem;
+    bottom: 1.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+    
     // width: calc(100% - 7rem);
     z-index: 9;
     border-radius: 0.5rem;
     display: flex;
     min-height: calc(100vh - 3rem);
+    // min-height: 100vh;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 3rem;
+    // justify-content: space-between;
     padding: 1rem;
     padding-top: 2rem;
     // transition: all 300ms ease;
